@@ -29,18 +29,24 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
+  const firstName = variables.name === null ? "John" : variables.name;
+  const surname = variables.name === null ? "Smith" : variables.lastName;
+  const position = variables.role === null ? "Web Developer" : variables.role;
+  const location = variables.city === null ? "Miami" : variables.city;
+  const country = variables.country === null ? "USA" : variables.country;
+
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
-          <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/school/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <img src="${variables.avatarURL}" class="photo" />;
+          <h1>${firstName} ${surname}</h1>
+          <h2>${position}</h2>
+          <h3>${location}, ${country}</h3>
+          <ul class="${variables.socialMediaPosition}">
+            <li><a href="https://twitter.com/4geeksacademy" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://github.com/4geeksacademy" target="_blank"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/school/4geeksacademy" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/4geeksacademy" target="_blank"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
