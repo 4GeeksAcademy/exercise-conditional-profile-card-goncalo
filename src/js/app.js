@@ -30,10 +30,26 @@ function render(variables = {}) {
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
   const firstName = variables.name === null ? "John" : variables.name;
-  const surname = variables.name === null ? "Smith" : variables.lastName;
+  const surname = variables.lastName === null ? "Smith" : variables.lastName;
   const position = variables.role === null ? "Web Developer" : variables.role;
   const location = variables.city === null ? "Miami" : variables.city;
   const country = variables.country === null ? "USA" : variables.country;
+  const twitter =
+    variables.twitter === null
+      ? "https://twitter.com/4geeksacademy"
+      : `https://${variables.twitter}`;
+  const gitHub =
+    variables.github === null
+      ? "https://github.com/4geeksacademy"
+      : `https://${variables.github}`;
+  const linkelDin =
+    variables.linkedin === null
+      ? "https://linkedin.com/school/4geeksacademy"
+      : `https://${variables.linkedin}`;
+  const instaGram =
+    variables.instagram === null
+      ? "https://instagram.com/4geeksacademy"
+      : `https://${variables.instagram}`;
 
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
@@ -43,10 +59,10 @@ function render(variables = {}) {
           <h2>${position}</h2>
           <h3>${location}, ${country}</h3>
           <ul class="${variables.socialMediaPosition}">
-            <li><a href="https://twitter.com/4geeksacademy" target="_blank"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy" target="_blank"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/school/4geeksacademy" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href=${twitter} target="_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a href=${gitHub} target="_blank"><i class="fab fa-github"></i></a></li>
+            <li><a href=${linkelDin} target="_blank"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href=${instaGram} target="_blank"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
